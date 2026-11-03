@@ -11,18 +11,18 @@
 <meta property="og:title" content="Solicitar propuesta · MOMENTO280">
 <meta property="og:description" content="Solicita una propuesta de papelería y señalética para tu boda en Cataluña. Atelier de diseño en Barcelona para bodas de alta gama y wedding planners.">
 <meta property="og:url" content="https://www.momento280.com/solicitud.html">
-<meta property="og:image" content="https://www.momento280.com/img/seating-tres-niveles.jpg">
+<meta property="og:image" content="https://www.momento280.com/seating-tres-niveles.jpg">
 <meta name="theme-color" content="#2A1E17">
-<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&amp;family=Inter+Tight:wght@500;600&amp;display=swap">
-<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="site.css">
 </head>
 <body>
 <header class="site-header wrap">
 <span class="sans muted" id="h-tag"></span>
-<div class="brand"><a class="logo" id="h-home" href="es/">MOMENTO280</a><span class="sans" id="h-sub"></span></div>
+<div class="brand"><a class="logo" id="h-home" href="es.html">MOMENTO280</a><span class="sans" id="h-sub"></span></div>
 <span aria-hidden="true"></span>
 <nav class="nav" aria-label="Idioma">
 <a href="?lang=es" class="lang" id="l-es" hreflang="es" lang="es">ES</a>
@@ -47,7 +47,7 @@ const CONFIG = {
   // puntos mínimos para prioridad A
   tierA: 9,
   // Clave de Web3Forms (gratis en https://web3forms.com, registrada con hola@momento280.com)
-  web3formsKey: "PEGA_AQUI_TU_ACCESS_KEY",
+  web3formsKey: "dc0285ab-a783-4807-8de9-fe4531ab43fb",
   // false = las solicitudes fuera de perfil no se envían
   sendOutOfProfile: false
 };
@@ -55,8 +55,10 @@ const CONFIG = {
 const T = {
   es:{
     eyebrow:"Papelería y señalética de autor",
-    h1:'Diseñamos la papelería de <em class="it">bodas excepcionales</em>',
-    lede:"Welcome, seating plan, minutas y señalética hechos a mano en nuestro atelier de Barcelona. Trabajamos con pocas bodas al año para cuidar cada detalle.",
+    h1:'Diseñamos la papelería de <em class="it">bodas y eventos excepcionales</em>',
+    company:"Somos una empresa", companyD:"Empresa, marca, agencia de eventos u hotel que prepara una cena privada, una gala o un lanzamiento.",
+    outTextEv:"Para 2027 nuestro calendario está dedicado a proyectos de papelería y señalética a partir de "+CONFIG.minPaper+". Por eso no podemos asumir este evento, pero os deseamos que salga perfecto.", companyL:"Empresa o agencia",
+    lede:"Welcome, seating plan, minutas y señalética hechos a mano en nuestro atelier de Barcelona, para bodas y eventos privados. Trabajamos con pocos proyectos al año para cuidar cada detalle.",
     from:"Proyectos de papelería a partir de "+CONFIG.minPaper+".",
     couple:"Somos pareja", coupleD:"Nos casamos en Cataluña o en el resto de España y buscamos un estudio para la papelería de nuestra boda.",
     planner:"Soy wedding planner", plannerD:"Organizo bodas de alta gama y busco un estudio de diseño para un proyecto o una colaboración estable.",
@@ -75,8 +77,10 @@ const T = {
   },
   en:{
     eyebrow:"Bespoke wedding stationery and signage",
-    h1:'We design the stationery for <em class="it">exceptional weddings</em>',
-    lede:"Welcome signs, seating plans, menus and signage, handmade in our Barcelona atelier. We take on a limited number of weddings each year so every detail gets our full attention.",
+    h1:'We design the stationery for <em class="it">exceptional weddings and events</em>',
+    company:"We are a company", companyD:"A company, brand, event agency or hotel planning a private dinner, a gala or a launch.",
+    outTextEv:"For 2027 our calendar is reserved for stationery and signage projects from "+CONFIG.minPaper+". We are unable to take on this event, but we wish you every success with it.", companyL:"Company or agency",
+    lede:"Welcome signs, seating plans, menus and signage, handmade in our Barcelona atelier, for weddings and private events. We take on a limited number of projects each year so every detail gets our full attention.",
     from:"Stationery projects from "+CONFIG.minPaper+".",
     couple:"We are a couple", coupleD:"We are getting married in Catalonia or elsewhere in Spain and are looking for a studio to design our wedding stationery.",
     planner:"I am a wedding planner", plannerD:"I plan luxury weddings and am looking for a design studio for one project or an ongoing collaboration.",
@@ -162,6 +166,39 @@ const FLOWS = {
       {v:"tbd",es:"Por definir según la propuesta",en:"To be defined with the proposal",p:1}]},
     {id:"pieces",type:"multi",es:"¿Qué piezas necesitáis?",en:"Which pieces do you need?",opts:pieceOpts,
       extra:{id:"story",es:"Cuéntanos el proyecto o la colaboración que imaginas",en:"Tell us about the project or collaboration you have in mind",area:true}}
+  ],
+  company:[
+    {id:"contact",type:"fields",es:"Sobre ti y tu empresa",en:"About you and your company",fields:[
+      {id:"name",es:"Nombre",en:"Name",req:true},
+      {id:"company",es:"Empresa",en:"Company",req:true},
+      {id:"email",es:"Email",en:"Email",req:true,type:"email"},
+      {id:"phone",es:"Teléfono",en:"Phone",req:true,type:"tel"},
+      {id:"role",es:"Cargo (opcional)",en:"Role (optional)",full:true}
+    ]},
+    {id:"who",type:"choice",es:"¿Quiénes sois?",en:"Who are you?",opts:[
+      {v:"brand",es:"Empresa o marca",en:"Company or brand",p:1},{v:"agency",es:"Agencia de eventos",en:"Event agency",p:2},
+      {v:"hotel",es:"Hotel o espacio para eventos",en:"Hotel or event venue",p:2}]},
+    {id:"etype",type:"choice",es:"¿Qué tipo de evento es?",en:"What kind of event is it?",opts:[
+      {v:"gala",es:"Cena privada o gala",en:"Private dinner or gala",p:2},{v:"launch",es:"Lanzamiento o presentación de marca",en:"Brand launch or presentation",p:2},
+      {v:"celebration",es:"Celebración de empresa (aniversario, fin de año)",en:"Company celebration (anniversary, year-end)",p:1},
+      {v:"incentive",es:"Viaje de incentivo o evento para clientes",en:"Incentive trip or client event",p:2},{v:"other",es:"Otro",en:"Other",p:0}]},
+    {id:"event",type:"fields",es:"¿Cuándo y dónde?",en:"When and where?",fields:[
+      {id:"date",es:"Fecha aproximada",en:"Approximate date",type:"month",req:true},
+      {id:"venue",es:"Hotel, finca o lugar",en:"Hotel or venue",ph:{es:"Ej. Hotel Arts Barcelona",en:"e.g. Hotel Arts Barcelona"}}
+    ]},
+    {id:"guests",type:"choice",es:"¿Cuántos invitados?",en:"How many guests?",opts:[
+      {v:"<50",es:"Menos de 50",en:"Fewer than 50",p:0},{v:"50-150",es:"Entre 50 y 150",en:"50 to 150",p:1},
+      {v:"150-300",es:"Entre 150 y 300",en:"150 to 300",p:2},{v:">300",es:"Más de 300",en:"More than 300",p:3}]},
+    {id:"paper",type:"choice",es:"Inversión prevista en papelería y señalética",en:"Planned budget for stationery and signage",opts:[
+      {v:"<3k",es:"Hasta 3.000 €",en:"Up to €3,000",p:0,out:true},{v:"3-6k",es:"De 3.000 a 6.000 €",en:"€3,000 to €6,000",p:1},
+      {v:"6-12k",es:"De 6.000 a 12.000 €",en:"€6,000 to €12,000",p:3},{v:">12k",es:"Más de 12.000 €",en:"More than €12,000",p:4},
+      {v:"tbd",es:"Por definir según la propuesta",en:"To be defined with the proposal",p:1}]},
+    {id:"pieces",type:"multi",es:"¿Qué piezas necesitáis?",en:"Which pieces do you need?",opts:[
+      {v:"wel",es:"Welcome y recepción",en:"Welcome and arrival"},{v:"sea",es:"Seating plan y nombres de mesa",en:"Seating plan and table names"},
+      {v:"min",es:"Minutas y meseros",en:"Menus and place cards"},{v:"sen",es:"Señalética del espacio",en:"Venue signage and wayfinding"},
+      {v:"brand",es:"Detalles con vuestra marca (logo en golpe seco, lacre)",en:"Branded details (embossed logo, wax seals)"},
+      {v:"mad",es:"Estructuras a medida",en:"Bespoke structures"},{v:"inv",es:"Invitaciones",en:"Invitations"}],
+      extra:{id:"story",es:"Contadnos el evento",en:"Tell us about the event",area:true}}
   ]
 };
 
@@ -175,7 +212,7 @@ function setLang(l,push){lang=l;document.documentElement.lang=l;
   ["es","en"].forEach(x=>{const a=document.getElementById("l-"+x);a.style.color=x===l?"var(--fg)":"";a.setAttribute("aria-current",x===l?"true":"false")});
   document.getElementById("h-tag").textContent=t("hTag");
   document.getElementById("h-sub").textContent=t("hSub");
-  document.getElementById("h-home").setAttribute("href",l==="es"?"es/":"./");
+  document.getElementById("h-home").setAttribute("href",l==="es"?"es.html":"./");
   const q=l==="en"?"?lang=en":"";
   const fl=document.getElementById("f-legal"),fp=document.getElementById("f-priv");
   fl.setAttribute("href","legal.html"+q+"#aviso");fl.textContent=t("legal");
@@ -201,6 +238,7 @@ function landing(){return `
   <div class="paths">
     <button class="path" type="button" data-flow="couple"><span class="t">${t("couple")}</span><span class="d">${t("coupleD")}</span></button>
     <button class="path" type="button" data-flow="planner"><span class="t">${t("planner")}</span><span class="d">${t("plannerD")}</span></button>
+    <button class="path" type="button" data-flow="company"><span class="t">${t("company")}</span><span class="d">${t("companyD")}</span></button>
   </div>
   <p class="note">${t("from")}</p>`}
 
@@ -249,14 +287,14 @@ function result(){
     <span>${t("tel")}: <b>${CONFIG.phone}</b></span>
     <span>${t("mail")}: <b>${CONFIG.email}</b></span></div>`;
   const main = tier==="X"
-    ? `<div class="eyebrow">Momento280</div><h2>${t("outTitle")}</h2><p class="lede">${t("outText")}</p>`
+    ? `<div class="eyebrow">Momento280</div><h2>${t("outTitle")}</h2><p class="lede">${flow==="company"?t("outTextEv"):t("outText")}</p>`
     : `<div class="eyebrow">${t("thanks")}${name?", "+esc(name):""}</div><h2>${t("okTitle")}</h2><p class="lede">${t("okText")}</p>${contact}`;
   return `${main}
     <div class="form-nav" style="justify-content:flex-start"><button type="button" class="btn ghost" id="restart">${t("restart")}</button></div>`}
 
 function buildPayload(pts,tier){
   const ES=x=>x.es;
-  const prof=flow==="couple"?"Pareja":"Wedding planner";
+  const prof={couple:"Pareja",planner:"Wedding planner",company:"Empresa / agencia"}[flow];
   const tierTxt={A:"Prioridad A",B:"Prioridad B",X:"Fuera de perfil"}[tier];
   const p={access_key:CONFIG.web3formsKey,
     subject:`[${tierTxt}] Nueva solicitud · ${prof} · ${A.name||""}`,
@@ -322,7 +360,7 @@ function bind(){
   if(bk)bk.onclick=()=>{err="";if(i===0)flow=null;else i--;render()};
   const r=document.getElementById("restart"); if(r)r.onclick=()=>{flow=null;i=0;A={};render()};
 }
-{const pf=new URLSearchParams(location.search).get("perfil");if(pf==="planner"||pf==="pareja"){flow=pf==="planner"?"planner":"couple"}}
+{const pf=new URLSearchParams(location.search).get("perfil");const map={planner:"planner",pareja:"couple",empresa:"company"};if(map[pf])flow=map[pf];}
 setLang(lang);
 </script>
 </body>

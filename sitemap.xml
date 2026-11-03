@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-<url><loc>https://www.momento280.com/</loc><xhtml:link rel="alternate" hreflang="es" href="https://www.momento280.com/es/"/><xhtml:link rel="alternate" hreflang="en" href="https://www.momento280.com/"/></url>
-<url><loc>https://www.momento280.com/es/</loc><xhtml:link rel="alternate" hreflang="es" href="https://www.momento280.com/es/"/><xhtml:link rel="alternate" hreflang="en" href="https://www.momento280.com/"/></url>
+<url><loc>https://www.momento280.com/</loc><xhtml:link rel="alternate" hreflang="es" href="https://www.momento280.com/es.html"/><xhtml:link rel="alternate" hreflang="en" href="https://www.momento280.com/"/></url>
+<url><loc>https://www.momento280.com/es.html</loc><xhtml:link rel="alternate" hreflang="es" href="https://www.momento280.com/es.html"/><xhtml:link rel="alternate" hreflang="en" href="https://www.momento280.com/"/></url>
+<url><loc>https://www.momento280.com/private-events.html</loc><xhtml:link rel="alternate" hreflang="es" href="https://www.momento280.com/eventos-privados.html"/><xhtml:link rel="alternate" hreflang="en" href="https://www.momento280.com/private-events.html"/></url>
+<url><loc>https://www.momento280.com/eventos-privados.html</loc><xhtml:link rel="alternate" hreflang="es" href="https://www.momento280.com/eventos-privados.html"/><xhtml:link rel="alternate" hreflang="en" href="https://www.momento280.com/private-events.html"/></url>
 <url><loc>https://www.momento280.com/solicitud.html</loc></url>
 </urlset>
