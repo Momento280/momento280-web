@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Solicitar propuesta · MOMENTO280</title>
+<meta name="description" content="Solicita una propuesta de papelería y señalética para tu boda en Cataluña. Atelier de diseño en Barcelona para bodas de alta gama y wedding planners.">
+<link rel="canonical" href="https://www.momento280.com/solicitud.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MOMENTO280">
+<meta property="og:title" content="Solicitar propuesta · MOMENTO280">
+<meta property="og:description" content="Solicita una propuesta de papelería y señalética para tu boda en Cataluña. Atelier de diseño en Barcelona para bodas de alta gama y wedding planners.">
+<meta property="og:url" content="https://www.momento280.com/solicitud.html">
+<meta property="og:image" content="https://www.momento280.com/img/seating-tres-niveles.jpg">
+<meta name="theme-color" content="#2A1E17">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&amp;family=Inter+Tight:wght@500;600&amp;display=swap">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<header class="site-header wrap">
+<span class="sans muted" id="h-tag"></span>
+<div class="brand"><a class="logo" id="h-home" href="es/">MOMENTO280</a><span class="sans" id="h-sub"></span></div>
+<span aria-hidden="true"></span>
+<nav class="nav" aria-label="Idioma">
+<a href="?lang=es" class="lang" id="l-es" hreflang="es" lang="es">ES</a>
+<a href="?lang=en" class="lang" id="l-en" hreflang="en" lang="en">EN</a>
+</nav>
+</header>
+<main class="wrap"><div class="form-page" id="app" aria-live="polite"></div></main>
+<div class="hp" aria-hidden="true"><label for="hp">No rellenar</label><input id="hp" type="text" tabindex="-1" autocomplete="off"></div>
+<footer class="site-footer wrap sans muted">
+<span style="color:var(--fg)">© MOMENTO280, 2026</span>
+<span>WhatsApp 687 816 844</span>
+<span><a href="legal.html#aviso" id="f-legal">Aviso legal</a> · <a href="legal.html#privacidad" id="f-priv">Privacidad</a></span>
+</footer>
+<script>
+
+/* ===== Ajustes editables ===== */
+const CONFIG = {
+  minPaper: "6.000 €",      // texto que se muestra en la portada
+  whatsapp: "687 816 844",
+  phone: "656 520 589",
+  email: "hola@momento280.com",
+  // puntos mínimos para prioridad A
+  tierA: 9,
+  // Clave de Web3Forms (gratis en https://web3forms.com, registrada con hola@momento280.com)
+  web3formsKey: "PEGA_AQUI_TU_ACCESS_KEY",
+  // false = las solicitudes fuera de perfil no se envían
+  sendOutOfProfile: false
+};
+
+const T = {
+  es:{
+    eyebrow:"Papelería y señalética de autor",
+    h1:'Diseñamos la papelería de <em class="it">bodas excepcionales</em>',
+    lede:"Welcome, seating plan, minutas y señalética hechos a mano en nuestro atelier de Barcelona. Trabajamos con pocas bodas al año para cuidar cada detalle.",
+    from:"Proyectos de papelería a partir de "+CONFIG.minPaper+".",
+    couple:"Somos pareja", coupleD:"Nos casamos en Cataluña o en el resto de España y buscamos un estudio para la papelería de nuestra boda.",
+    planner:"Soy wedding planner", plannerD:"Organizo bodas de alta gama y busco un estudio de diseño para un proyecto o una colaboración estable.",
+    step:"Paso", of:"de", next:"Continuar", back:"Atrás", send:"Enviar solicitud", required:"Completa los campos marcados para continuar.", pick:"Elige una opción para continuar.",
+    hTag:"Cartelería y papelería de boda en Cataluña", hSub:"Solicitar propuesta", legal:"Aviso legal", priv:"Privacidad",
+    consent:'He leído la <a href="legal.html#privacidad">política de privacidad</a> y acepto que MOMENTO280 use mis datos para responder a esta solicitud.', consentErr:"Acepta la política de privacidad para enviar la solicitud.",
+    thanks:"Gracias", okTitle:'Hemos recibido <em class="it">vuestra solicitud</em>',
+    okText:"Os escribiremos en menos de 24 horas con el siguiente paso. Si preferís adelantarlo, podéis escribirnos por WhatsApp.",
+    outTitle:'Gracias por pensar <em class="it">en nosotras</em>',
+    outText:"Para la temporada 2027 nuestro calendario está dedicado a proyectos de papelería integral a partir de "+CONFIG.minPaper+". Por eso no podemos asumir esta boda, pero os deseamos un día precioso.",
+    wa:"WhatsApp", tel:"Teléfono", mail:"Email", copy:"Copiar",
+    team:"Ver cómo os llega la solicitud", hide:"Ocultar ficha", restart:"Empezar de nuevo",
+    sending:"Enviando…", sendErr:"No hemos podido enviar la solicitud. Inténtalo de nuevo o escríbenos por WhatsApp al "+CONFIG.whatsapp+".",
+    tierA:"Prioridad A", tierB:"Prioridad B", tierX:"Fuera de perfil", pts:"puntos", received:"Recibida",
+    profile:"Perfil", coupleL:"Pareja", plannerL:"Wedding planner"
+  },
+  en:{
+    eyebrow:"Bespoke wedding stationery and signage",
+    h1:'We design the stationery for <em class="it">exceptional weddings</em>',
+    lede:"Welcome signs, seating plans, menus and signage, handmade in our Barcelona atelier. We take on a limited number of weddings each year so every detail gets our full attention.",
+    from:"Stationery projects from "+CONFIG.minPaper+".",
+    couple:"We are a couple", coupleD:"We are getting married in Catalonia or elsewhere in Spain and are looking for a studio to design our wedding stationery.",
+    planner:"I am a wedding planner", plannerD:"I plan luxury weddings and am looking for a design studio for one project or an ongoing collaboration.",
+    step:"Step", of:"of", next:"Continue", back:"Back", send:"Send request", required:"Please fill in the marked fields to continue.", pick:"Choose an option to continue.",
+    hTag:"Wedding signage & stationery in Catalonia", hSub:"Request a proposal", legal:"Legal", priv:"Privacy",
+    consent:'I have read the <a href="legal.html?lang=en#privacidad">privacy policy</a> and agree that MOMENTO280 may use my details to reply to this request.', consentErr:"Please accept the privacy policy to send your request.",
+    thanks:"Thank you", okTitle:'We have received <em class="it">your request</em>',
+    okText:"We will write to you within 24 hours with the next step. If you would like to speak sooner, message us on WhatsApp.",
+    outTitle:'Thank you for <em class="it">thinking of us</em>',
+    outText:"For the 2027 season our calendar is reserved for full stationery projects from "+CONFIG.minPaper+". We are unable to take on this wedding, but we wish you a beautiful day.",
+    wa:"WhatsApp", tel:"Phone", mail:"Email", copy:"Copy",
+    team:"See how the request reaches you", hide:"Hide summary", restart:"Start again",
+    sending:"Sending…", sendErr:"We could not send your request. Please try again or message us on WhatsApp at +34 "+CONFIG.whatsapp+".",
+    tierA:"Priority A", tierB:"Priority B", tierX:"Out of profile", pts:"points", received:"Received",
+    profile:"Profile", coupleL:"Couple", plannerL:"Wedding planner"
+  }
+};
+
+/* Cada opción lleva puntos; out:true descarta la solicitud */
+const PIECES = [
+  ["inv","Invitaciones","Invitations"],["wel","Welcome","Welcome sign"],["sea","Seating plan","Seating plan"],
+  ["min","Minutas","Menus"],["mes","Meseros y nombres","Table numbers and place cards"],["cer","Papelería de ceremonia","Ceremony stationery"],
+  ["sen","Señalética del espacio","Venue signage"],["mad","Estructuras a medida","Bespoke structures"],["acab","Golpe seco, lacre o papel de algodón","Blind emboss, wax seals or cotton paper"]
+];
+const pieceOpts = PIECES.map(([v,es,en])=>({v,es,en}));
+
+const FLOWS = {
+  couple:[
+    {id:"contact",type:"fields",es:"Empecemos por vosotros",en:"Let's start with you",fields:[
+      {id:"name",es:"Vuestros nombres",en:"Your names",req:true,full:true},
+      {id:"email",es:"Email",en:"Email",req:true,type:"email"},
+      {id:"phone",es:"Teléfono o WhatsApp",en:"Phone or WhatsApp",req:true,type:"tel"},
+      {id:"country",es:"País de residencia",en:"Country of residence",full:true,ph:{es:"Ej. Reino Unido",en:"e.g. United Kingdom"}}
+    ]},
+    {id:"wedding",type:"fields",es:"¿Cuándo y dónde os casáis?",en:"When and where is the wedding?",fields:[
+      {id:"date",es:"Fecha aproximada",en:"Approximate date",type:"month",req:true},
+      {id:"venue",es:"Finca o lugar",en:"Venue",req:true,ph:{es:"Ej. Mas de Torrent",en:"e.g. Mas de Torrent"}}
+    ]},
+    {id:"guests",type:"choice",es:"¿Cuántos invitados esperáis?",en:"How many guests are you expecting?",opts:[
+      {v:"<80",es:"Menos de 80",en:"Fewer than 80",p:0},{v:"80-150",es:"Entre 80 y 150",en:"80 to 150",p:1},
+      {v:"150-250",es:"Entre 150 y 250",en:"150 to 250",p:2},{v:">250",es:"Más de 250",en:"More than 250",p:3}]},
+    {id:"total",type:"choice",es:"¿Cuál es la inversión total prevista para la boda?",en:"What is the overall budget for the wedding?",opts:[
+      {v:"<60k",es:"Hasta 60.000 €",en:"Up to €60,000",p:0,out:true},{v:"60-120k",es:"De 60.000 a 120.000 €",en:"€60,000 to €120,000",p:1},
+      {v:"120-250k",es:"De 120.000 a 250.000 €",en:"€120,000 to €250,000",p:3},{v:">250k",es:"Más de 250.000 €",en:"More than €250,000",p:4}]},
+    {id:"paper",type:"choice",es:"¿Y para papelería y señalética?",en:"And for stationery and signage?",opts:[
+      {v:"<3k",es:"Hasta 3.000 €",en:"Up to €3,000",p:0,out:true},{v:"3-6k",es:"De 3.000 a 6.000 €",en:"€3,000 to €6,000",p:1},
+      {v:"6-12k",es:"De 6.000 a 12.000 €",en:"€6,000 to €12,000",p:3},{v:">12k",es:"Más de 12.000 €",en:"More than €12,000",p:4}]},
+    {id:"pieces",type:"multi",es:"¿Qué piezas os gustaría?",en:"Which pieces would you like?",opts:pieceOpts},
+    {id:"planner",type:"choice",es:"¿Tenéis wedding planner?",en:"Do you have a wedding planner?",opts:[
+      {v:"yes",es:"Sí",en:"Yes",p:2},{v:"choosing",es:"La estamos eligiendo",en:"We are choosing one",p:1},{v:"no",es:"No",en:"No",p:0}],
+      extra:{id:"plannerName",es:"Nombre de la planner (opcional)",en:"Planner's name (optional)"}},
+    {id:"next",type:"choice",es:"¿Cómo preferís continuar?",en:"How would you like to continue?",opts:[
+      {v:"call",es:"Videollamada de 30 minutos",en:"30-minute video call",p:1},{v:"atelier",es:"Visita al atelier con cita previa",en:"Visit the atelier by appointment",p:2},
+      {v:"email",es:"Propuesta por email",en:"Proposal by email",p:0}],
+      extra:{id:"story",es:"Contadnos algo de vuestra boda",en:"Tell us about your wedding",area:true}}
+  ],
+  planner:[
+    {id:"contact",type:"fields",es:"Sobre ti y tu agencia",en:"About you and your agency",fields:[
+      {id:"name",es:"Nombre",en:"Name",req:true},
+      {id:"agency",es:"Agencia",en:"Agency",req:true},
+      {id:"email",es:"Email",en:"Email",req:true,type:"email"},
+      {id:"phone",es:"Teléfono o WhatsApp",en:"Phone or WhatsApp",req:true,type:"tel"},
+      {id:"web",es:"Web o Instagram",en:"Website or Instagram",full:true}
+    ]},
+    {id:"volume",type:"choice",es:"¿Cuántas bodas organizáis al año?",en:"How many weddings do you plan each year?",opts:[
+      {v:"1-10",es:"Hasta 10",en:"Up to 10",p:0},{v:"10-25",es:"Entre 10 y 25",en:"10 to 25",p:1},
+      {v:"25-50",es:"Entre 25 y 50",en:"25 to 50",p:2},{v:">50",es:"Más de 50",en:"More than 50",p:3}]},
+    {id:"avg",type:"choice",es:"¿Cuál es la inversión media de vuestras bodas?",en:"What is the average budget of your weddings?",opts:[
+      {v:"<60k",es:"Hasta 60.000 €",en:"Up to €60,000",p:0,out:true},{v:"60-120k",es:"De 60.000 a 120.000 €",en:"€60,000 to €120,000",p:1},
+      {v:"120-250k",es:"De 120.000 a 250.000 €",en:"€120,000 to €250,000",p:3},{v:">250k",es:"Más de 250.000 €",en:"More than €250,000",p:4}]},
+    {id:"seek",type:"choice",es:"¿Qué estás buscando?",en:"What are you looking for?",opts:[
+      {v:"project",es:"Papelería para una boda concreta",en:"Stationery for a specific wedding",p:1},
+      {v:"ongoing",es:"Un estudio de diseño para colaborar de forma estable",en:"A design studio for an ongoing collaboration",p:3},
+      {v:"identity",es:"Diseño de identidad visual para nuestros proyectos",en:"Visual identity design for our projects",p:2}]},
+    {id:"project",type:"fields",es:"Si tienes una boda en mente",en:"If you have a wedding in mind",fields:[
+      {id:"date",es:"Fecha aproximada",en:"Approximate date",type:"month"},
+      {id:"venue",es:"Finca o lugar",en:"Venue"},
+      {id:"guests",es:"Invitados",en:"Guests",type:"number"}
+    ]},
+    {id:"paper",type:"choice",es:"Inversión prevista en papelería y señalética",en:"Planned budget for stationery and signage",opts:[
+      {v:"<3k",es:"Hasta 3.000 €",en:"Up to €3,000",p:0,out:true},{v:"3-6k",es:"De 3.000 a 6.000 €",en:"€3,000 to €6,000",p:1},
+      {v:"6-12k",es:"De 6.000 a 12.000 €",en:"€6,000 to €12,000",p:3},{v:">12k",es:"Más de 12.000 €",en:"More than €12,000",p:4},
+      {v:"tbd",es:"Por definir según la propuesta",en:"To be defined with the proposal",p:1}]},
+    {id:"pieces",type:"multi",es:"¿Qué piezas necesitáis?",en:"Which pieces do you need?",opts:pieceOpts,
+      extra:{id:"story",es:"Cuéntanos el proyecto o la colaboración que imaginas",en:"Tell us about the project or collaboration you have in mind",area:true}}
+  ]
+};
+
+let lang=/^en/i.test(new URLSearchParams(location.search).get("lang")||"")?"en":"es", flow=null, i=0, A={}, err="";
+const app=document.getElementById("app");
+const t=k=>T[lang][k];
+const L=o=>o[lang];
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+function setLang(l,push){lang=l;document.documentElement.lang=l;
+  ["es","en"].forEach(x=>{const a=document.getElementById("l-"+x);a.style.color=x===l?"var(--fg)":"";a.setAttribute("aria-current",x===l?"true":"false")});
+  document.getElementById("h-tag").textContent=t("hTag");
+  document.getElementById("h-sub").textContent=t("hSub");
+  document.getElementById("h-home").setAttribute("href",l==="es"?"es/":"./");
+  const q=l==="en"?"?lang=en":"";
+  const fl=document.getElementById("f-legal"),fp=document.getElementById("f-priv");
+  fl.setAttribute("href","legal.html"+q+"#aviso");fl.textContent=t("legal");
+  fp.setAttribute("href","legal.html"+q+"#privacidad");fp.textContent=t("priv");
+  document.title=(l==="es"?"Solicitar propuesta":"Request a proposal")+" · MOMENTO280";
+  if(push){try{const u=new URL(location.href);u.searchParams.set("lang",l);history.replaceState(null,"",u)}catch(e){}}
+  render(false)}
+["es","en"].forEach(x=>document.getElementById("l-"+x).addEventListener("click",e=>{e.preventDefault();setLang(x,true)}));
+
+function render(anim=true){
+  let h="";
+  if(!flow) h=landing();
+  else if(i<FLOWS[flow].length) h=stepView();
+  else h=result();
+  app.innerHTML=`<div class="${anim?"fade":""}" style="display:flex;flex-direction:column;gap:28px">${h}</div>`;
+  bind();
+}
+
+function landing(){return `
+  <div class="eyebrow">${t("eyebrow")}</div>
+  <h2>${t("h1")}</h2>
+  <p class="lede">${t("lede")}</p>
+  <div class="paths">
+    <button class="path" type="button" data-flow="couple"><span class="t">${t("couple")}</span><span class="d">${t("coupleD")}</span></button>
+    <button class="path" type="button" data-flow="planner"><span class="t">${t("planner")}</span><span class="d">${t("plannerD")}</span></button>
+  </div>
+  <p class="note">${t("from")}</p>`}
+
+function stepView(){
+  const s=FLOWS[flow][i], n=FLOWS[flow].length;
+  let body="";
+  if(s.type==="fields"){
+    body=`<div class="fields">${s.fields.map(f=>`<div class="field ${f.full?"full":""}">
+      <label for="f-${f.id}">${L(f)}${f.req?" *":""}</label>
+      <input id="f-${f.id}" data-f="${f.id}" type="${f.type||"text"}" value="${esc(A[f.id])}" placeholder="${f.ph?esc(L(f.ph)):""}" ${f.type==="number"?'min="0" inputmode="numeric"':""}>
+    </div>`).join("")}</div>`;
+  } else {
+    const multi=s.type==="multi", cur=A[s.id]||(multi?[]:null);
+    body=`<div class="${multi?"chips":"opts"}" role="group">${s.opts.map(o=>{
+      const on=multi?cur.includes(o.v):cur===o.v;
+      return `<button type="button" class="opt ${multi?"multi":""}" data-o="${o.v}" aria-pressed="${on}">${multi?'<span class="mk"></span>':""}<span>${L(o)}</span>${multi?"":'<span class="mk"></span>'}</button>`}).join("")}</div>`;
+  }
+  if(s.extra){const e=s.extra;
+    body+=`<div class="field"><label for="f-${e.id}">${L(e)}</label>${e.area
+      ?`<textarea id="f-${e.id}" data-f="${e.id}">${esc(A[e.id])}</textarea>`
+      :`<input id="f-${e.id}" data-f="${e.id}" type="text" value="${esc(A[e.id])}">`}</div>`}
+  if(i===n-1)body+=`<label class="consent"><input type="checkbox" id="consent" ${A.consent?"checked":""}><span>${t("consent")}</span></label>`;
+  return `
+  <div class="progress"><span>${t("step")} ${i+1} ${t("of")} ${n}</span><span class="bar"><i style="width:${(i+1)/n*100}%"></i></span></div>
+  <h2>${L(s)}</h2>
+  ${body}
+  <div class="err" id="err">${err}</div>
+  <div class="form-nav">
+    <button type="button" class="btn ghost" id="back">← ${t("back")}</button>
+    <button type="button" class="btn" id="next">${i===n-1?t("send"):t("next")}</button>
+  </div>`}
+
+function evaluate(){
+  let pts=0,out=false;
+  FLOWS[flow].forEach(s=>{if(s.type==="choice"){const o=s.opts.find(o=>o.v===A[s.id]);if(o){pts+=o.p;if(o.out)out=true}}});
+  if(flow==="couple"&&A.country&&!/espa|spain/i.test(A.country))pts+=1;
+  if((A.pieces||[]).length>=4)pts+=1;
+  const tier=out?"X":pts>=CONFIG.tierA?"A":"B";
+  return {pts,tier};
+}
+
+function result(){
+  const {pts,tier}=evaluate(), name=(A.name||"").split(/\s|&|y\b/)[0];
+  const contact=`<div class="contact-box">
+    <span>${t("wa")}: <b>${CONFIG.whatsapp}</b></span>
+    <span>${t("tel")}: <b>${CONFIG.phone}</b></span>
+    <span>${t("mail")}: <b>${CONFIG.email}</b></span></div>`;
+  const main = tier==="X"
+    ? `<div class="eyebrow">Momento280</div><h2>${t("outTitle")}</h2><p class="lede">${t("outText")}</p>`
+    : `<div class="eyebrow">${t("thanks")}${name?", "+esc(name):""}</div><h2>${t("okTitle")}</h2><p class="lede">${t("okText")}</p>${contact}`;
+  return `${main}
+    <div class="form-nav" style="justify-content:flex-start"><button type="button" class="btn ghost" id="restart">${t("restart")}</button></div>`}
+
+function buildPayload(pts,tier){
+  const ES=x=>x.es;
+  const prof=flow==="couple"?"Pareja":"Wedding planner";
+  const tierTxt={A:"Prioridad A",B:"Prioridad B",X:"Fuera de perfil"}[tier];
+  const p={access_key:CONFIG.web3formsKey,
+    subject:`[${tierTxt}] Nueva solicitud · ${prof} · ${A.name||""}`,
+    from_name:"Web Momento280", replyto:A.email||"", botcheck:"",
+    "Prioridad":`${tierTxt} (${pts} puntos)`, "Perfil":prof, "Idioma":lang.toUpperCase(), "Consentimiento privacidad":"Sí"};
+  FLOWS[flow].forEach(s=>{
+    if(s.type==="fields") s.fields.forEach(f=>{if(A[f.id])p[ES(f)]=A[f.id]});
+    else if(s.type==="choice"){const o=s.opts.find(o=>o.v===A[s.id]);if(o)p[ES(s)]=ES(o)}
+    else if(s.type==="multi"){const v=(A[s.id]||[]).map(x=>ES(s.opts.find(o=>o.v===x))).join(", ");if(v)p[ES(s)]=v}
+    if(s.extra&&A[s.extra.id])p[ES(s.extra)]=A[s.extra.id];
+  });
+  return p;
+}
+
+async function submit(){
+  const {pts,tier}=evaluate();
+  if(tier==="X"&&!CONFIG.sendOutOfProfile)return true;
+  if(document.getElementById("hp")?.value)return true; // bot
+  const r=await fetch("https://api.web3forms.com/submit",{method:"POST",
+    headers:{"Content-Type":"application/json",Accept:"application/json"},
+    body:JSON.stringify(buildPayload(pts,tier))});
+  const j=await r.json().catch(()=>({}));
+  return r.ok&&j.success!==false;
+}
+
+function validate(){
+  const s=FLOWS[flow][i];
+  if(s.type==="fields"){
+    const miss=s.fields.filter(f=>f.req&&!String(A[f.id]||"").trim());
+    const badMail=s.fields.some(f=>f.type==="email"&&A[f.id]&&!/^\S+@\S+\.\S+$/.test(A[f.id]));
+    return miss.length||badMail?t("required"):"";
+  }
+  if(s.type==="choice"&&!A[s.id])return t("pick");
+  if(s.type==="multi"&&!(A[s.id]||[]).length)return t("pick");
+  if(i===FLOWS[flow].length-1&&!A.consent)return t("consentErr");
+  return "";
+}
+
+function bind(){
+  app.querySelectorAll("[data-flow]").forEach(b=>b.onclick=()=>{flow=b.dataset.flow;i=0;A={};err="";render()});
+  app.querySelectorAll("[data-f]").forEach(el=>el.oninput=()=>{A[el.dataset.f]=el.value});
+  const cs=document.getElementById("consent"); if(cs)cs.onchange=()=>{A.consent=cs.checked};
+  const s=flow&&FLOWS[flow][i];
+  app.querySelectorAll("[data-o]").forEach(b=>b.onclick=()=>{
+    const v=b.dataset.o;
+    if(s.type==="multi"){const a=A[s.id]||[];A[s.id]=a.includes(v)?a.filter(x=>x!==v):[...a,v]}
+    else A[s.id]=v;
+    err="";
+    app.querySelectorAll("[data-o]").forEach(x=>{const on=s.type==="multi"?A[s.id].includes(x.dataset.o):A[s.id]===x.dataset.o;x.setAttribute("aria-pressed",on)});
+    document.getElementById("err").textContent="";
+  });
+  const nx=document.getElementById("next"), bk=document.getElementById("back");
+  if(nx)nx.onclick=async()=>{err=validate();if(err){document.getElementById("err").textContent=err;return}
+    const o=s.type==="choice"&&s.opts.find(o=>o.v===A[s.id]);
+    const last=(o&&o.out)||i===FLOWS[flow].length-1;
+    if(last){
+      nx.disabled=true;nx.textContent=t("sending");
+      let ok=false;try{ok=await submit()}catch(e){ok=false}
+      if(!ok){nx.disabled=false;nx.textContent=t("send");document.getElementById("err").textContent=t("sendErr");return}
+      i=FLOWS[flow].length;
+    } else i++;
+    err="";render();window.scrollTo({top:0})};
+  if(bk)bk.onclick=()=>{err="";if(i===0)flow=null;else i--;render()};
+  const r=document.getElementById("restart"); if(r)r.onclick=()=>{flow=null;i=0;A={};render()};
+}
+{const pf=new URLSearchParams(location.search).get("perfil");if(pf==="planner"||pf==="pareja"){flow=pf==="planner"?"planner":"couple"}}
+setLang(lang);
+</script>
+</body>
+</html>
