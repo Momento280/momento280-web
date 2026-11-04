@@ -20,6 +20,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&amp;family=Inter+Tight:wght@500;600&amp;display=swap">
 <link rel="stylesheet" href="site.css">
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-zwRuUF6MST-vF_12D3wN5.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
 </head>
 <body>
 <header class="site-header wrap">
@@ -100,5 +106,27 @@
 <span><a href="./" lang="en" hreflang="en">English</a> · <a href="es.html" lang="es" hreflang="es">Español</a></span>
 <span><a href="legal.html#aviso">Aviso legal</a> · <a href="legal.html#privacidad">Privacidad</a> · <a href="legal.html#cookies">Cookies</a></span>
 </footer>
+<script>
+/* Medición de clics: botones de solicitud, WhatsApp y email */
+(function(){
+  function send(name, props, done){
+    var called=false; function go(){ if(!called){called=true; if(done) done();} }
+    try{ if(window.plausible){ window.plausible(name,{props:props,callback:go}); setTimeout(go,350); return; } }catch(e){}
+    go();
+  }
+  document.addEventListener("click",function(e){
+    var a=e.target.closest&&e.target.closest("a[href]"); if(!a) return;
+    var h=a.getAttribute("href")||"", page=location.pathname||"/", label=(a.textContent||"").trim().slice(0,60);
+    var ev=null, props={pagina:page};
+    if(h.indexOf("solicitud.html")>-1){ ev="Clic propuesta"; props.boton=label; }
+    else if(h.indexOf("wa.me")>-1){ ev="Contacto directo"; props.canal="WhatsApp"; }
+    else if(h.indexOf("mailto:")===0){ ev="Contacto directo"; props.canal="Email"; }
+    if(!ev) return;
+    var sameTab=!a.target && !e.metaKey && !e.ctrlKey && !e.shiftKey && h.indexOf("mailto:")!==0 && h.indexOf("http")!==0;
+    if(sameTab){ e.preventDefault(); send(ev,props,function(){ location.href=a.href; }); }
+    else send(ev,props);
+  });
+})();
+</script>
 </body>
 </html>

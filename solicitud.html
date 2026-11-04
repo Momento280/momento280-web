@@ -18,6 +18,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&amp;family=Inter+Tight:wght@500;600&amp;display=swap">
 <link rel="stylesheet" href="site.css">
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-zwRuUF6MST-vF_12D3wN5.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
 </head>
 <body>
 <header class="site-header wrap">
@@ -204,6 +210,9 @@ const FLOWS = {
 
 let lang=/^en/i.test(new URLSearchParams(location.search).get("lang")||"")?"en":"es", flow=null, i=0, A={}, err="";
 const app=document.getElementById("app");
+const PERFIL={couple:"Pareja",planner:"Wedding planner",company:"Empresa"};
+const PASO={contact:"datos",wedding:"fecha y lugar",guests:"invitados",total:"presupuesto boda",paper:"presupuesto papelería",pieces:"piezas",planner:"tiene planner",next:"siguiente paso",volume:"bodas al año",avg:"presupuesto medio",seek:"qué busca",project:"proyecto",who:"quiénes son",etype:"tipo de evento",event:"fecha y lugar"};
+function track(name,props){try{if(window.plausible)window.plausible(name,{props:props})}catch(e){}}
 const t=k=>T[lang][k];
 const L=o=>o[lang];
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -334,7 +343,7 @@ function validate(){
 }
 
 function bind(){
-  app.querySelectorAll("[data-flow]").forEach(b=>b.onclick=()=>{flow=b.dataset.flow;i=0;A={};err="";render()});
+  app.querySelectorAll("[data-flow]").forEach(b=>b.onclick=()=>{flow=b.dataset.flow;i=0;A={};err="";track("Perfil elegido",{perfil:PERFIL[flow],origen:"formulario",idioma:lang});render()});
   app.querySelectorAll("[data-f]").forEach(el=>el.oninput=()=>{A[el.dataset.f]=el.value});
   const cs=document.getElementById("consent"); if(cs)cs.onchange=()=>{A.consent=cs.checked};
   const s=flow&&FLOWS[flow][i];
@@ -354,13 +363,16 @@ function bind(){
       nx.disabled=true;nx.textContent=t("sending");
       let ok=false;try{ok=await submit()}catch(e){ok=false}
       if(!ok){nx.disabled=false;nx.textContent=t("send");document.getElementById("err").textContent=t("sendErr");return}
+      const ev=evaluate();
+      if(ev.tier==="X")track("Fuera de perfil",{perfil:PERFIL[flow],pregunta:PASO[s.id]||s.id});
+      else track("Solicitud enviada",{perfil:PERFIL[flow],prioridad:ev.tier,idioma:lang});
       i=FLOWS[flow].length;
-    } else i++;
+    } else {track("Paso formulario",{perfil:PERFIL[flow],paso:String(i+1)+" · "+(PASO[s.id]||s.id)});i++;}
     err="";render();window.scrollTo({top:0})};
   if(bk)bk.onclick=()=>{err="";if(i===0)flow=null;else i--;render()};
   const r=document.getElementById("restart"); if(r)r.onclick=()=>{flow=null;i=0;A={};render()};
 }
-{const pf=new URLSearchParams(location.search).get("perfil");const map={planner:"planner",pareja:"couple",empresa:"company"};if(map[pf])flow=map[pf];}
+{const pf=new URLSearchParams(location.search).get("perfil");const map={planner:"planner",pareja:"couple",empresa:"company"};if(map[pf]){flow=map[pf];track("Perfil elegido",{perfil:PERFIL[flow],origen:"enlace",idioma:lang})}}
 setLang(lang);
 </script>
 </body>

@@ -19,6 +19,12 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&amp;family=Inter+Tight:wght@500;600&amp;display=swap">
 <link rel="stylesheet" href="site.css">
 <meta name="robots" content="noindex">
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-zwRuUF6MST-vF_12D3wN5.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
 </head>
 <body>
 <header class="site-header wrap">
@@ -56,8 +62,30 @@
 <p>Puedes pedir acceso, rectificación, supresión, oposición, limitación o portabilidad escribiendo a hola@momento280.com. Si crees que no hemos atendido bien tu solicitud, puedes reclamar ante la Agencia Española de Protección de Datos (aepd.es).</p>
 
 <h2 id="cookies">Política de cookies</h2>
-<p>Esta web no instala cookies propias ni de análisis o publicidad. Las tipografías se cargan desde Google Fonts, que puede recibir tu dirección IP para servirlas. Si en el futuro añadimos herramientas de análisis, te pediremos el consentimiento antes.</p>
+<p>Esta web no instala cookies propias ni de publicidad. Para saber cuántas personas la visitan y qué páginas y botones usan, utilizamos Plausible Analytics, una herramienta que no usa cookies, no guarda datos personales ni direcciones IP y solo ofrece estadísticas agregadas. Las tipografías se cargan desde Google Fonts, que puede recibir tu dirección IP para servirlas. Si en el futuro añadimos herramientas que usen cookies, te pediremos el consentimiento antes.</p>
 </article></main>
 <footer class="site-footer wrap sans muted"><span style="color:var(--fg)">© MOMENTO280, 2026</span><a href="es.html">Inicio</a></footer>
+<script>
+/* Medición de clics: botones de solicitud, WhatsApp y email */
+(function(){
+  function send(name, props, done){
+    var called=false; function go(){ if(!called){called=true; if(done) done();} }
+    try{ if(window.plausible){ window.plausible(name,{props:props,callback:go}); setTimeout(go,350); return; } }catch(e){}
+    go();
+  }
+  document.addEventListener("click",function(e){
+    var a=e.target.closest&&e.target.closest("a[href]"); if(!a) return;
+    var h=a.getAttribute("href")||"", page=location.pathname||"/", label=(a.textContent||"").trim().slice(0,60);
+    var ev=null, props={pagina:page};
+    if(h.indexOf("solicitud.html")>-1){ ev="Clic propuesta"; props.boton=label; }
+    else if(h.indexOf("wa.me")>-1){ ev="Contacto directo"; props.canal="WhatsApp"; }
+    else if(h.indexOf("mailto:")===0){ ev="Contacto directo"; props.canal="Email"; }
+    if(!ev) return;
+    var sameTab=!a.target && !e.metaKey && !e.ctrlKey && !e.shiftKey && h.indexOf("mailto:")!==0 && h.indexOf("http")!==0;
+    if(sameTab){ e.preventDefault(); send(ev,props,function(){ location.href=a.href; }); }
+    else send(ev,props);
+  });
+})();
+</script>
 </body>
 </html>
